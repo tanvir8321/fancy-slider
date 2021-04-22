@@ -5,7 +5,9 @@
   margin: 0 auto;
   position: relative;
 }
-
+body{
+  position: relative;
+}
 .gallery-header {
   display: none;
 }
@@ -63,4 +65,8 @@ img {
     height: 300px;
     width: 90%;
   }
+}
+.s-g-img-size img{
+  width: 100px;
+  height: 50px;
 }

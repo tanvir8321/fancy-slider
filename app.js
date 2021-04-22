@@ -4,7 +4,9 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+
 const searchField = document.getElementById('search');
+const selectedGallery = document.querySelector('.seclected-images-container');
 // selected image 
 let sliders = [];
 
@@ -49,6 +51,19 @@ const selectItem = (event, img) => {
     sliders.splice(item, 1);
     element.classList.remove('added');
   }
+  // console.log(sliders)
+  
+  selectedGallery.innerHTML = '';
+  sliders.forEach(item => {
+    let div = document.createElement('div');
+    div.className = 'col-lg-1 col-md-3 col-xs-4 s-g-img-size';
+    div.innerHTML = ` 
+        <img src="${item}" alt="..." class="img-thumbnail">
+  `;
+  selectedGallery.appendChild(div);
+  })
+  
+
 }
 var timer
 const createSlider = () => {
@@ -124,6 +139,7 @@ searchBtn.addEventListener('click', function () {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+  
 })
 
 sliderBtn.addEventListener('click', function () {
@@ -137,3 +153,5 @@ searchField.addEventListener('keypress', (e) => {
     searchBtn.click();
   }
 })
+
+// new feature 1 - selected image gallery
